@@ -32,3 +32,12 @@ Projektin tavoitteena oli oppia rakentamaan sovellus, joka yhdistää kielimalli
    ```bash
    git clone [https://github.com/kayttajatunnus/projekti-nimi.git](https://github.com/kayttajatunnus/projekti-nimi.git)
    cd projekti-nimi
+
+   ### 🔑 API-avain ja `.env`-tiedosto
+
+Sovellus vaatii toimiakseen Groq API -avaimen. Tietoturvasyistä `.env`-tiedosto ei ole mukana repositoriossa, joten luo se itse ennen sovelluksen käynnistämistä:
+
+1. Luo projektin juurikansioon tiedosto nimeltä `.env`
+2. Lisää tiedostoon oma API-avaimesi:
+   ```env
+   GROQ_API_KEY=sinun_api_avaimesi_tähän
