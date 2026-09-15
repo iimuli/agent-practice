@@ -1,6 +1,6 @@
 # 🚑 Ensihoidon Lääkehoidon Avustaja (Demo & Oppimisprojekti)
 
-Moi! Olen alasta innostunut aloitteleva kehittäjä, ja tämä on oppimisprojektini, jossa tutkin tekoälyn hyödyntämistä sekä **Function Calling (Tools)** -toiminnallisuutta sääntöpohjaisessa tiedonhaussa.
+Projektissa tutkin tekoälyn hyödyntämistä sekä **Function Calling (Tools)** -toiminnallisuutta sääntöpohjaisessa tiedonhaussa.
 
 Projektin tavoitteena oli oppia rakentamaan sovellus, joka yhdistää kielimallin (LLM) kyvyn ymmärtää vapaamuotoista tekstiä ja taustalla toimivan Python-laskentalogiikan.
 
