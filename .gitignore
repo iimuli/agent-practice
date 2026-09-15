@@ -1,6 +1,8 @@
 # Ympäristömuuttujat ja salaisuudet
 .env
 .streamlit/secrets.toml
+main.py
+scraper.py
 
 # Python-väliaikaistiedostot
 __pycache__/
