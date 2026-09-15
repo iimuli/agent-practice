@@ -1,0 +1,9 @@
+# Ympäristömuuttujat ja salaisuudet
+.env
+.streamlit/secrets.toml
+
+# Python-väliaikaistiedostot
+__pycache__/
+*.pyc
+.venv/
+venv/
