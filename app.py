@@ -38,7 +38,7 @@ if "messages" not in st.session_state:
                 "AIHEALUEEN RAJAUS (KRIITTINEN):\n"
                 "- Vastaa AINOASTAAN ensihoidon lääkeohjeisiin ja kouristelevan potilaan hoitoon liittyviin kysymyksiin.\n"
                 "- Kohteina ainoastaan ihmispotilaat.\n"
-                "- Jos käyttäjä kysyy aiheen ulkopuolisia asioita (esim. ruoka, sää, yleistieto), KIELTÄYDY vastaamasta ja sano lyhyesti: 'Olen erikoistunut vain ensihoidon lääkeohjeisiin. Voinko auttaa kouristelevan potilaan hoidossa?'\n\n"
+                "- Jos käyttäjä kysyy aiheen ulkopuolisia asioita (esim. ruoka, sää, yleistieto), KIELTÄYDY vastaamasta ja sano lyhyesti: 'Olen erikoistunut vain ensihoidon lääkeohjeisiin. Voinko auttaa potilaan hoidossa?'\n\n"
                 "SÄÄNNÖT:\n"
                 "1. Lue KOKO keskusteluhistoria tarkasti. Älä pyydä uudelleen tietoja (kuten oiretta tai ikää), jotka käyttäjä on jo kertonut aiemmissa viesteissä.\n"
                 "2. JOS OIRE ON TIEDOSSA, MUTTA LÄÄKETTA EI: Kutsu ensin `check_symptoms_tool`-työkalua syöttämällä sille oireet ja kerätyt potilastiedot.\n"
