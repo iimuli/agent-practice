@@ -1,0 +1,10 @@
+[
+    {
+        "conditions": ["kouristus", "status epilepticus", "levottomuus", "levoton", "aggressiivinen", "delirium", "ketamiinin sivuvaikutus"],
+        "medicine": ["midatsolaami", "levetirasetaami"]
+    },
+    {
+        "conditions": ["kuume", "kipu"],
+        "medicine": ["parasetamoli"]
+    }
+]

@@ -1,0 +1,130 @@
+{
+"midatsolaami":{
+    "antidote": "flumatseniili",
+    "route": ["i.v.", "i.n.", "bu.", "i.m."],
+    "adult":{
+        "rules":[
+        {
+            "conditions": ["kouristus"],
+            "is_elderly": true,
+            "requires_iv": true,
+            "route": ["i.v."],
+            "dose": "2.5mg",
+            "interval": "2-3min"
+        },
+        {
+            "conditions": ["kouristus"],
+            "is_elderly": true,
+            "requires_iv": false,
+            "route": ["i.n."],
+            "dose": "5mg",
+            "interval": "2-3min",
+            "notes": "Jaa annos tasan molempiin sieraimiin (50/50) atomisaattorilla."
+        },
+        {
+            "conditions": ["kouristus"],
+            "is_elderly": false,
+            "requires_iv": true,
+            "route": ["i.v."],
+            "dose": "5mg",
+            "interval": "2-3min"
+        },  
+        {
+            "conditions": ["kouristus"],
+            "is_elderly": false,
+            "requires_iv": false,
+            "route": ["i.n."],
+            "dose": "10mg",
+            "interval": "2-3min",
+            "notes": "Jaa annos tasan molempiin sieraimiin (50/50) atomisaattorilla."
+        },  
+        {
+            "conditions": ["kouristus"],
+            "is_elderly": false,
+            "requires_iv": false,
+            "route": ["i.m."],
+            "dose": "10mg",
+            "interval": "Konsultoi"
+        },  
+        {
+            "conditions": ["delirium", "levottomuus"],
+            "requires_iv": true,
+            "route": ["i.v."],
+            "dose": "1mg",
+            "interval": "3-5 min"
+        },  
+        {
+            "conditions": ["ketamiinin sivuvaikutus"],
+            "requires_iv": true,
+            "route": ["i.v."],
+            "dose": "1mg",
+            "interval": "Konsultoi"
+        },  
+        {
+            "conditions": ["ketamiinin sivuvaikutus"],
+            "requires_iv": false,
+            "route": ["i.n."],
+            "dose": "5mg",
+            "interval": "Konsultoi",
+            "notes": "Jaa annos tasan molempiin sieraimiin (50/50) atomisaattorilla."
+        }
+    ] 
+    },
+    "child":{
+        "rules":[
+        {
+            "conditions": ["kouristus", "ketamiinin sivuvaikutus"],
+            "requires_iv": true,
+            "route": ["i.v."],
+            "dose": "0.1mg/kg",
+            "max_single_dose": "5mg",
+            "interval": "2-3min x 2. Jatko annokset konsultoitava"
+        },
+        {
+            "conditions": ["kouristus", "ketamiinin sivuvaikutus"],
+            "requires_iv": false,
+            "route": ["i.n.", "bu."],
+            "dose": "0.25mg/kg",
+            "max_single_dose": "10mg",
+            "interval": "Konsultoi",
+            "notes": "Jaa annos tasan molempiin sieraimiin atomisaattorilla tai suun limakalvoille (50/50)."
+        }
+    ] 
+    }         
+    },
+    "parasetamoli":{
+    "route": ["i.v.", "p.o."],
+    "adult":{
+        "rules":[
+        {
+            "conditions": ["kuume", "kipu"],
+            "requires_iv": true,
+            "route": ["i.v."],
+            "dose": "1g"
+        },
+                {
+            "conditions": ["kuume", "kipu"],
+            "requires_iv": false,
+            "route": ["p.o."],
+            "dose": "1g"
+        }
+    ] 
+    },
+    "child":{
+        "rules":[
+        {
+            "conditions": ["kuume", "kipu"],
+            "requires_iv": true,
+            "route": ["i.v."],
+            "dose": "15mg/kg"
+        },
+        {
+            "conditions": ["kuume", "kipu"],
+            "requires_iv": false,
+            "route": ["p.o."],
+            "dose": "Konsultoi annos"
+        }
+    ] 
+    }         
+    }
+}

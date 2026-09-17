@@ -30,22 +30,31 @@ st.write("Kyseessä DEMO, tällä hetkellä teemana ainoastaan kouristelevan pot
 if "messages" not in st.session_state:
     st.session_state.messages = [
         {
-            "role": "system",  #annetaan agentilel toimintaohjeet, tässä rajattu vastuasmallit ja aihealueet 
+            "role": "system",
             "content": (
                 "Olet lääkehoidon avustaja ensihoidolle. TÄRKEÄÄ: Tämä on demo/portfolio, eikä tätä käytetä oikeasti terveydenhuollossa!\n\n"
                 "TEHTÄVÄ:\n"
                 "Määritä potilaan oireiden ja tietojen perusteella sopiva lääke, annos ja antoreitti käyttämällä saatavilla olevia työkaluja.\n\n"
                 "AIHEALUEEN RAJAUS (KRIITTINEN):\n"
                 "- Vastaa AINOASTAAN ensihoidon lääkeohjeisiin ja kouristelevan potilaan hoitoon liittyviin kysymyksiin.\n"
-                "- Kohteina ainoastaan ihmis potilaat.\n"
+                "- Kohteina ainoastaan ihmispotilaat.\n"
                 "- Jos käyttäjä kysyy aiheen ulkopuolisia asioita (esim. ruoka, sää, yleistieto), KIELTÄYDY vastaamasta ja sano lyhyesti: 'Olen erikoistunut vain ensihoidon lääkeohjeisiin. Voinko auttaa kouristelevan potilaan hoidossa?'\n\n"
                 "SÄÄNNÖT:\n"
-                "1. Kutsut välittömästi `check_medicine_dose`-työkalua saaduilla parametreilla.\n"
-                "2. Jos työkalu palauttaa virheen puuttuvista tiedoista (esim. lapsen paino), pyydä se lyhyesti.\n"
-                "3. Kun työkalu palauttaa valmiin ohjeen, toista se sellaisenaan ilman omia lisäyksiä."
+                "1. Lue KOKO keskusteluhistoria tarkasti. Älä pyydä uudelleen tietoja (kuten oiretta tai ikää), jotka käyttäjä on jo kertonut aiemmissa viesteissä.\n"
+                "2. JOS OIRE ON TIEDOSSA, MUTTA LÄÄKETTA EI: Kutsu ensin `check_symptoms_tool`-työkalua syöttämällä sille oireet ja kerätyt potilastiedot.\n"
+                "3. JOS LÄÄKE ON JO TIEDOSSA: Kutsu `check_medicine_dose_tool`-työkalua.\n"
+                "4. Jos työkalu ilmoittaa, että oireeseen on useita lääkevaihtoehtoja, kysy käyttäjältä mitä lääkettä he haluavat käyttää.\n"
+                "5. Jos kriittisiä tietoja (kuten lapsen paino) puuttuu, pyydä ne lyhyesti.\n"
+                "6. KRIITTISTÄ: Kun työkalu (check_medicine_dose_tool tai check_symptoms_tool) palauttaa valmiin lääkeohjeen, TULOSTA SE KÄYTTÄJÄLLE TÄSMÄLLEEN SELLAISENAAN.\n"
+                "7. ÄLÄ lisää työkalun vastaukseen omaa tekstiä, tervehtimisiä, yhteenvetoja tai lääketieteellisiä neuvoja.\n"
+                "8. ÄLÄ leiki lääkäriä. Olet vain rajapinta työkalun ja käyttäjän välillä."
             )
         }
     ]
+
+if st.button("Tyhjennä keskustelu"):
+    st.session_state.messages = []
+    st.rerun()   
 
 # näytetään aiempi keskusteluhistoria (piilotetaan system- ja tool-viestit)
 for msg in st.session_state.messages:
@@ -73,7 +82,8 @@ if user_input := st.chat_input("Kirjoita viesti..."):
                 messages=st.session_state.messages,
                 tools=tools.tools_spec,
                 tool_choice="auto", #"required" jos halutaan pakottaa pelkkien työkalun käyttöä
-                max_tokens=800
+                max_tokens=800,
+                temperature=0.0
             )
 
             response_message = response.choices[0].message
